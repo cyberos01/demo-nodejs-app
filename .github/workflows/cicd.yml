@@ -29,7 +29,6 @@ jobs:
     - name: Build
       run: npm run build
 
-      - name: Deploy to server
-  run: |
-    ssh -o StrictHostKeyChecking=no -i ${{ secrets.ARUN_USER_KEY }} arun@13.232.229.218 'cd /home/arun/demo-nodejs-app && git pull origin main && npm install && pm2 reload all' 
-
+    - name: Deploy to server
+      run: |
+        ssh -o StrictHostKeyChecking=no -i ${{ secrets.ARUN_USER_KEY }} arun@13.232.229.218 'cd /home/arun/demo-nodejs-app && git pull origin main && npm install && pm2 reload all'
